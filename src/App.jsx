@@ -9,7 +9,9 @@ import Question from "./components/Question";
 const initialState = {
   questions: [],
   status: "loading", // loading, error, ready, active, finished
-  index: 0
+  index: 0,
+  answer: null,
+  points: 0
 };
 
 const reducer = (state, action) => {
@@ -30,13 +32,20 @@ const reducer = (state, action) => {
         ...state,
         status: "active"
       }
+    case 'newAnswer':
+      const question = state.questions.at(state.index)
+      return {
+        ...state,
+        answer: action.payload,
+        points: action.payload === question.correctOption ? state.points + question.points : state.points
+      }
     default:
       throw new Error("Unknown action type");
   }
 };
 
 const App = () => {
-  const [{ questions, status, index }, dispatch] = useReducer(reducer, initialState);
+  const [{ questions, status, index, answer }, dispatch] = useReducer(reducer, initialState);
   const numQuestions = questions.length
 
   useEffect(() => {
@@ -64,7 +73,7 @@ const App = () => {
         {status === "loading" && <Loader />}
         {status === "error" && <Error />}
         {status === "ready" && <StartScreen numQuestions={numQuestions} dispatch={dispatch} />}
-        {status === "active" && <Question q={questions[index]} />}
+        {status === "active" && <Question answer={answer} dispatch={dispatch} q={questions[index]} />}
 
       </Main>
     </section>
