@@ -1,6 +1,9 @@
 import { useEffect, useReducer } from "react";
 import Header from "./components/Header";
 import Main from "./components/Main";
+import Loader from "./components/Loader";
+import Error from "./components/Error";
+import StartScreen from "./components/StartScreen";
 
 const initialState = {
   questions: [],
@@ -26,7 +29,8 @@ const reducer = (state, action) => {
 };
 
 const App = () => {
-  const [state, dispatch] = useReducer(reducer, initialState);
+  const [{ questions, status }, dispatch] = useReducer(reducer, initialState);
+  const numQuestions = questions.length
 
   useEffect(() => {
     const fetchQuestions = async () => {
@@ -50,19 +54,9 @@ const App = () => {
     <section className="flex flex-col mx-auto max-w-xl">
       <Header />
       <Main>
-        {state.status === "loading" && <p>Yükleniyor...</p>}
-        {state.status === "error" && <p className="text-red-500">Veriler alınamadı.</p>}
-        {state.status === "ready" && (
-          <>
-            <p>1/{state.questions.length}</p>
-            <p>Soru</p>
-            {state.questions.map((q) => (
-              <div key={q.question}>
-                <p>{q.question}</p>
-              </div>
-            ))}
-          </>
-        )}
+        {status === "loading" && <Loader />}
+        {status === "error" && <Error />}
+        {status === "ready" && <StartScreen numQuestions={numQuestions} />}
       </Main>
     </section>
   );
