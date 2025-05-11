@@ -1,4 +1,46 @@
-const NextButton = ({ dispatch, answer }) => {
+const NextButton = ({ dispatch, answer, index, numQuestions }) => {
+
+    if (answer === null) return null
+    if (index === numQuestions - 1) return (
+        <button className="btn btn-ui" onClick={() => dispatch({ type: 'finished' })}>
+            Bitir
+        </button>
+    )
+    return (
+        <button className="btn btn-ui" onClick={() => dispatch({ type: 'nextQuestion' })}>
+            Sonraki
+        </button>
+    );
+}
+
+export default NextButton;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/**
+ * const NextButton = ({ dispatch, answer, index, numQuestions }) => {
+
+    if (index === numQuestions - 1 && answer !== null) {
+        return (
+            <button className="btn btn-ui" onClick={() => dispatch({ type: 'finished' })}>
+                Bitir
+            </button>
+        )
+    }
     if (answer === null) return null
     return (
         <button className="btn btn-ui" onClick={() => dispatch({ type: 'nextQuestion' })}>
@@ -8,3 +50,5 @@ const NextButton = ({ dispatch, answer }) => {
 }
 
 export default NextButton;
+
+ */

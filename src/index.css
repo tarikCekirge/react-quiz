@@ -119,15 +119,15 @@ progress {
 }
 
 .result {
-  @apply bg-[var(--color-theme)] text-[var(--color-light)] rounded-full text-center py-8 text-[2rem] font-medium mb-6;
+  @apply bg-[var(--color-theme)] text-[var(--color-light)] rounded-full text-center py-5 text-xl font-medium mb-6;
 }
 
 .result span {
-  @apply text-[2.2rem] mr-1;
+  @apply text-2xl mr-1;
 }
 
 .highscore {
-  @apply text-[1.8rem] text-center mb-20;
+  @apply text-lg text-center mb-20;
 }
 
 .loader-container {
