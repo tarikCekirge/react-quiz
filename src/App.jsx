@@ -64,8 +64,11 @@ const reducer = (state, action) => {
 
     case 'restart': {
       return {
-        ...state
-      }
+        ...initialState,
+        questions: state.questions,
+        status: "ready",
+        highscore: state.highscore
+      };
     }
     default:
       throw new Error("Unknown action type");
