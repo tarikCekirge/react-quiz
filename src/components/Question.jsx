@@ -1,7 +1,12 @@
+import Options from "./Options"
 
-const Question = () => {
+const Question = ({ q }) => {
+    const { question, options, correctOption, points, id } = q
     return (
-        <div>Question</div>
+        <div>
+            <h4>{question}</h4>
+            <Options options={options} />
+        </div>
     )
 }
 
