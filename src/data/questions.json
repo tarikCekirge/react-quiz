@@ -1,0 +1,139 @@
+{
+  "questions": [
+    {
+      "question": "En popüler JavaScript framework'ü hangisidir?",
+      "options": ["Angular", "React", "Svelte", "Vue"],
+      "correctOption": 1,
+      "points": 10
+    },
+    {
+      "question": "React'i hangi şirket geliştirmiştir?",
+      "options": ["Google", "Apple", "Netflix", "Facebook"],
+      "correctOption": 3,
+      "points": 10
+    },
+    {
+      "question": "React uygulamalarının temel yapı taşı nedir?",
+      "options": ["Bileşenler", "Bloklar", "Elementler", "Effect'ler"],
+      "correctOption": 0,
+      "points": 10
+    },
+    {
+      "question": "React bileşenlerinde UI'ı tanımlamak için hangi sözdizimi kullanılır?",
+      "options": ["FBJ", "Babel", "JSX", "ES2015"],
+      "correctOption": 2,
+      "points": 10
+    },
+    {
+      "question": "React uygulamalarında veri akışı doğal olarak nasıl işler?",
+      "options": [
+        "Ebeveynlerden çocuklara",
+        "Çocuklardan ebeveynlere",
+        "Her iki yönde",
+        "Geliştirici karar verir"
+      ],
+      "correctOption": 0,
+      "points": 10
+    },
+    {
+      "question": "Bir alt bileşene veri nasıl iletilir?",
+      "options": ["State", "Props", "PropTypes", "Parametreler"],
+      "correctOption": 1,
+      "points": 10
+    },
+    {
+      "question": "Türetilmiş state ne zaman kullanılmalıdır?",
+      "options": [
+        "State yeniden render'ı tetiklememeli olduğunda",
+        "State bir effect ile senkronize edilebildiğinde",
+        "State tüm bileşenler tarafından erişilebilir olmalıysa",
+        "State başka bir state değişkeninden türetilebiliyorsa"
+      ],
+      "correctOption": 3,
+      "points": 30
+    },
+    {
+      "question": "React'te hangi durumda UI yeniden render edilir?",
+      "options": [
+        "Bir effect çalıştırıldığında",
+        "Props iletildiğinde",
+        "State güncellendiğinde",
+        "DOM elementlerine event listener eklendiğinde"
+      ],
+      "correctOption": 2,
+      "points": 20
+    },
+    {
+      "question": "React'te DOM'u doğrudan ne zaman 'dokunuruz'?",
+      "options": [
+        "Bir olayı dinlememiz gerektiğinde",
+        "UI'ı değiştirmemiz gerektiğinde",
+        "Stil eklememiz gerektiğinde",
+        "Neredeyse hiç"
+      ],
+      "correctOption": 3,
+      "points": 20
+    },
+    {
+      "question": "State güncellemesi için callback ne zaman kullanılır?",
+      "options": [
+        "State güncellemesi yavaş olacağında",
+        "Güncellenen state çok veri yoğun olduğunda",
+        "State güncellemesinin daha hızlı olması gerektiğinde",
+        "Yeni state önceki state'e bağlı olduğunda"
+      ],
+      "correctOption": 3,
+      "points": 30
+    },
+    {
+      "question": "useState'e bir fonksiyon verirsek, bu fonksiyon ne zaman çalışır?",
+      "options": [
+        "Her yeniden render'da",
+        "State her güncellendiğinde",
+        "Yalnızca ilk render'da",
+        "State ilk kez güncellendiğinde"
+      ],
+      "correctOption": 2,
+      "points": 30
+    },
+    {
+      "question": "Bir bileşen ilk kez render edildiğinde API isteği yapmak için hangi hook kullanılır?",
+      "options": ["useState", "useEffect", "useRef", "useReducer"],
+      "correctOption": 1,
+      "points": 10
+    },
+    {
+      "question": "useEffect bağımlılık dizisine hangi değişkenler yazılmalıdır?",
+      "options": [
+        "Genellikle hiçbiri",
+        "Tüm state değişkenleri",
+        "Effect içinde referans verilen tüm state ve props'lar",
+        "Sadece temizleme işlemi için gereken değişkenler"
+      ],
+      "correctOption": 2,
+      "points": 30
+    },
+    {
+      "question": "Bir effect her zaman ilk render'da çalışır.",
+      "options": [
+        "Doğru",
+        "Bağımlılık dizisine bağlıdır",
+        "Yanlış",
+        "Effect içindeki koda bağlıdır"
+      ],
+      "correctOption": 0,
+      "points": 30
+    },
+    {
+      "question": "Eğer bir effect'in bağımlılık dizisi yoksa ne zaman çalışır?",
+      "options": [
+        "Yalnızca bileşen yüklendiğinde",
+        "Yalnızca bileşen kaldırıldığında",
+        "Bileşen ilk yeniden render edildiğinde",
+        "Bileşen her yeniden render edildiğinde"
+      ],
+      "correctOption": 3,
+      "points": 20
+    }
+  ]
+}
