@@ -5,13 +5,14 @@ import Loader from "./components/Loader";
 import Error from "./components/Error";
 import StartScreen from "./components/StartScreen";
 import Question from "./components/Question";
+import NextButton from "./components/NextButton";
 
 const initialState = {
   questions: [],
   status: "loading", // loading, error, ready, active, finished
   index: 0,
   answer: null,
-  points: 0
+  points: 0,
 };
 
 const reducer = (state, action) => {
@@ -39,6 +40,17 @@ const reducer = (state, action) => {
         answer: action.payload,
         points: action.payload === question.correctOption ? state.points + question.points : state.points
       }
+
+    case 'nextQuestion': {
+      const hasNextQuestion = state.index < state.questions.length - 1;
+
+      return {
+        ...state,
+        index: hasNextQuestion ? state.index + 1 : state.index,
+        answer: null,
+        status: !hasNextQuestion ? 'finished' : "active"
+      };
+    }
     default:
       throw new Error("Unknown action type");
   }
@@ -73,7 +85,10 @@ const App = () => {
         {status === "loading" && <Loader />}
         {status === "error" && <Error />}
         {status === "ready" && <StartScreen numQuestions={numQuestions} dispatch={dispatch} />}
-        {status === "active" && <Question answer={answer} dispatch={dispatch} q={questions[index]} />}
+        {status === "active" && <>
+          <Question answer={answer} dispatch={dispatch} q={questions[index]} />
+          <NextButton dispatch={dispatch} answer={answer} />
+        </>}
 
       </Main>
     </section>
