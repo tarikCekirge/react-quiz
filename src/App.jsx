@@ -1,10 +1,15 @@
-import React from 'react'
+import Header from "./components/Header"
+import Main from "./components/Main"
 
 const App = () => {
   return (
-    <h1 class="text-3xl font-bold underline">
-      Hello world!
-    </h1>
+    <section className="flex flex-col  mx-auto max-w-xl">
+      <Header />
+      <Main>
+        <p>1/15</p>
+        <p>Question</p>
+      </Main>
+    </section>
   )
 }
 
