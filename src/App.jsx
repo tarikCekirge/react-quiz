@@ -18,18 +18,7 @@ import useQuiz from "./context/hooks/useQuiz";
 
 const App = () => {
 
-  const {
-    status,
-    dispatch,
-    questions,
-    index,
-    answer,
-    points,
-    highscore,
-    secondsRemaning,
-    numQuestions,
-    maxPossiblePoints,
-  } = useQuiz();
+  const { status } = useQuiz();
 
 
   return (
@@ -38,16 +27,16 @@ const App = () => {
       <Main>
         {status === "loading" && <Loader />}
         {status === "error" && <Error />}
-        {status === "ready" && <StartScreen numQuestions={numQuestions} dispatch={dispatch} />}
+        {status === "ready" && <StartScreen />}
         {status === "active" && <>
-          <Progress answer={answer} maxPossiblePoints={maxPossiblePoints} points={points} index={index} numQuestions={numQuestions} />
-          <Question answer={answer} dispatch={dispatch} q={questions[index]} />
+          <Progress />
+          <Question />
           <Footer>
-            <Timer dispatch={dispatch} secondsRemaning={secondsRemaning} />
-            <NextButton index={index} numQuestions={numQuestions} dispatch={dispatch} answer={answer} />
+            <Timer />
+            <NextButton />
           </Footer>
         </>}
-        {status === "finished" && <FinishScreen dispatch={dispatch} highscore={highscore} points={points} maxPossiblePoints={maxPossiblePoints} />}
+        {status === "finished" && <FinishScreen />}
 
       </Main>
     </section>
